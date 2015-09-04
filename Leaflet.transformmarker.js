@@ -1,4 +1,5 @@
 L.TransformMarker = L.Marker.extend({
+
 	setTransform: function (transform) {
 		this._transform = transform;
 	},
@@ -12,6 +13,8 @@ L.TransformMarker = L.Marker.extend({
 
 		if (L.Browser.any3d && this._transform) {
 			this._icon.style[L.DomUtil.TRANSFORM] += this._transform;
+			this._icon.style['transformOrigin'] = this.icon.anchor.x + 'px ' + this.icon.anchor.y + 'px';
 		}
 	}
+
 });
